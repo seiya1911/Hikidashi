@@ -29,7 +29,8 @@ Itemはタグにより更に細かく分類することも可能で、タグに�
 ものを減らそうと考えているときに持っているものを俯瞰して見たいとき。
 
 ## 設計書
-後日作成想定
+### ER図
+https://drive.google.com/file/d/1SsdawfAQTTzrPu7JQJ7LRzTiPedWi7v2/view?usp=sharing
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1ewviCnGYDqr7LoPFO0GB6_jOfzZShlAMSZaswxaO0QE/edit#gid=0
