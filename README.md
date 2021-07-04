@@ -31,6 +31,7 @@ Itemはタグにより更に細かく分類することも可能で、タグに�
 ## 設計書
 ### [ER図](https://drive.google.com/file/d/1SsdawfAQTTzrPu7JQJ7LRzTiPedWi7v2/view?usp=sharing)
 ### [テーブル定義書](https://drive.google.com/file/d/1H-dU5cYUxyHpZhmFtUzYDPYOmK1OsBFY/view?usp=sharing)
+### [UI Flows](https://drive.google.com/file/d/1VPCpIsPWjCZ6tSWvv7-dirGWuVE4Tk0y/view?usp=sharing)
 ### [アプリケーション詳細設計書]作成中
 
 ## チャレンジ要素一覧
