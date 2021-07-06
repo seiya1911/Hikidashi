@@ -1,0 +1,2 @@
+class DrawersController < ApplicationController
+end
