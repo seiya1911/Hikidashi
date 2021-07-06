@@ -12,4 +12,10 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
     end
   end
+  
+  has_many :drawers, dependent: :destroy
+  has_many :items, dependent: :destroy
+  has_many :tags, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  
 end
