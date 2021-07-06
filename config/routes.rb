@@ -3,4 +3,13 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'homes#top'
+
+  resources :users, only: [:show, :edit, :update]
+  resources :drawers, only: [:index, :show, :new, :create, :edit, :update]
+  resources :items, only: [:show, :new, :create, :edit, :update]
+  resources :tags, only: [:new, :destroy]
+  resources :comments, only: [:new, :destroy]
+
+  get 'searches/items'
+  get 'searches/drawers'
 end
