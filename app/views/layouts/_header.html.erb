@@ -1,0 +1,48 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light" id="header-out">
+    <div class="container" id="header-conteiner">
+      <div id="header-logo">
+				<a class="navbar-brand" id="top-path" href="/" style="margin-top: -10px;">
+				  <!--<p>-->
+				  <!--  <%#= image_tag 'header-logo.jpg' %>-->
+				  <!--</p>-->
+					<h1 id="logo">Hikidashi</h1>
+				</a>
+			</div>
+			<div class="colapse" id="navbarNavDropdown">
+			  <div class="nav-inner">
+			    <ul class="navbar-nav">
+			    <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to users_path(current_user) , class:"nav-link" do %>
+                <p>マイページ
+              <% end %>
+            </li>
+            <li>
+              <%= link_to drawers_path , class:"nav-link" do %>
+                <p>Drawer一覧
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path , method: :delete ,class:"nav-link" do %>
+                <p>ログアウト
+              <% end %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to new_user_registration_path , class:"nav-link" do %>
+                <p>新規登録
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_session_path , class:"nav-link" do %>
+                <p>ログイン
+              <% end %>
+            </li>
+          <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
