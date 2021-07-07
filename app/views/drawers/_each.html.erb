@@ -1,0 +1,17 @@
+  <% drawers.each do |drawer| %>
+<div class="col-xs-10 col-sm-10 col-md-6 col-lg-3">
+    <div class="card w-100 ">
+        <%= link_to drawer_path(drawer.id),style: "color: black;" do %>
+      <div class="text-center">
+        <%= attachment_image_tag drawer, :image, fallback:"no-image.jpeg", size: '250x200' %>
+      </div>
+      <div class="text-center">
+        <div><%= drawer.name %></div>
+           <h3>
+           <span class="tax">(税込)</span>
+        <div></div>
+      </div>
+        <% end %>
+    </div>
+</div>
+  <% end %>
