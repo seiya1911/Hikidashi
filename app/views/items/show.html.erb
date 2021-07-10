@@ -14,14 +14,15 @@
           <div class="col"><%= @item.name %></div>
         </div>
         <div class="row my-2">
-          <div class="col">商品説明</div>
+          <div class="col">Item説明</div>
           <div class="col"><%= @item.description %></div>
         </div>
         <div class="row my-2">
-          <div class="col">ジャンル</div>
+          <div class="col">タグ</div>
           <div class="col">
-            <!--eachで全て表示-->
-            <%#= @item.genre.name %>
+            <% @item_tags.each do |tag| %>
+            <%= tag.tag_name %>
+            <% end %>
           </div>
         </div>
         <div class="row my-2">

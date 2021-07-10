@@ -1,7 +1,7 @@
   <%= form_with model: item, url: items_path(item), local:true do |f| %>
 <div class="form-group row">
   <%= f.label :image_id, "Item画像", class: "col-sm-5 control-label" %>
-  <%= f.attachment_field :image, class: 'col-sm-7' %>
+  <%#= f.attachment_field :image, class: 'col-sm-7' %>
 </div>
 <div class="form-group row">
   <%= f.label :name, "Item名", class: "col-sm-5 control-label" %>
@@ -11,12 +11,12 @@
   <%= f.label :descroption, "Item説明", class: "col-sm-5 control-label" %>
   <%= f.text_area :description, class: 'col-sm-7 form-control item_description', placeholder: "ここに説明文を記述します" %>
 </div>
-  <!--ジャンル作成と複数選択機能を実装-->
-  <!--<div class="form-group row">-->
-  <!--  <%#= f.label :genre_id, "ジャンル", class: "col-sm-5 control-label" %>-->
-  <!--  <%#= f.collection_select :genre_id, @genres, :id, :name, prompt: "選択して下さい" %>-->
-  <!--</div>-->
 <div class="form-group row">
-  <%= f.submit, class: 'btn btn-success' %>
+    <%= f.label :tag_name, "タグ", class: "col-sm-5 control-label" %>
+    <%= f.text_area :tag_name, class: 'col-sm-7 form-control item_tag_name', placeholder: "スペースを入力することで複数のタグを付けることができます。
+例：シャツ 赤 日用品" %>
+  </div>
+<div class="form-group row">
+  <%= f.submit class: 'btn btn-success' %>
 </div>
   <% end %>
