@@ -7,6 +7,7 @@ class DrawersController < ApplicationController
   def show
     @drawer = Drawer.find(params[:id])
     @comment = Comment.new
+    @items = @drawer.items
   end
 
   def new
