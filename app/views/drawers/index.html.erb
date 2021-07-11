@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="flame">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1>Drawer一覧(Total<%= @drawers.count %>)</h1>
+      </div>
+    </div>
+  </div>
+  <div class='d-flex justify-content-end'>
+      <div class="btnripple">
+        <%= link_to new_drawer_path , class:"btn btn-success" do %><i class="fas fa-plus-circle"></i><% end %>
+      </div>
+    </div>
+  <div class="row">
+    <%= render "each", drawers: @drawers %>
+  </div>
+  <div class="text-center">
+    <%#= paginate @drawers %>
+  </div>
+</div>
