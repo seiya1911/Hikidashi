@@ -42,6 +42,8 @@
               <% end %>
           </tbody>
         </table>
+        <%= render 'comments/index', drawer: @drawer %>
+        <%= render 'comments/form', drawer: @drawer, comment: @comment %>
     </div>
   </div>
 </div>
