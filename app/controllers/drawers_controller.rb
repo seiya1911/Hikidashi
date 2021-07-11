@@ -27,6 +27,7 @@ class DrawersController < ApplicationController
   end
 
   def edit
+    @drawer = Drawer.find(params[:id])
   end
 
   def update

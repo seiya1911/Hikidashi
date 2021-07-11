@@ -34,6 +34,7 @@
         </table>
         <%#= render 'comments/index', drawer: @drawer %>
         <%#= render 'comments/form', drawer: @drawer, comment: @comment %>
+        <%= link_to '編集', edit_drawer_path(@drawer), class: "btn btn-sm btn-success edit_drawer_#{@drawer.id}" %>
     </div>
   </div>
 </div>
