@@ -1,0 +1,40 @@
+<div class="container">
+ <h2 class="head-line title_h2 text-center">Drawer詳細</h2>
+ <div calss="row">
+    <div class="col-xs-8">
+      <h3><i class="fas fa-box"></i> Drawer名：<%= @drawer.name %></h3>
+    </div>
+    <div class="col-xs-3 col-xs-offset-1 drawer-description">
+        <h5>説明:<%= @drawer.description %></h5>
+    </div>
+    <div class="col-xs-7 order-details">
+      <strong><i class="fas fa-thumbtack"></i>Item一覧</strong>
+      <div class='d-flex justify-content-end'>
+      <div class="btnripple">
+        <%= link_to new_item_path , class:"btn btn-success" do %><i class="fas fa-plus-circle"></i><% end %>
+      </div>
+    </div>
+        <table class="table table-striped table-bordered table-condensed">
+          <thead>
+            <tr>
+              <th>Item名</th>
+              <th>画像</th>
+              <th>説明</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% @items.each do |item| %>
+            <tr>
+              <td><%= item.name %></td>
+              <td><%= attachment_image_tag item, :image, fallback:"no-image.jpeg", size: '250x200' %>></td>
+              <td><%= item.description %></td>
+            </tr>
+              <% end %>
+          </tbody>
+        </table>
+        <%#= render 'comments/index', drawer: @drawer %>
+        <%#= render 'comments/form', drawer: @drawer, comment: @comment %>
+        <%= link_to '編集', edit_drawer_path(@drawer), class: "btn btn-sm btn-success edit_drawer_#{@drawer.id}" %>
+    </div>
+  </div>
+</div>
