@@ -9,8 +9,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = current_user.items.new(item_params)
-    tag_list = params[:item][:tag_name].split(nil)
+    @item = Item.new(item_params)
+    @item.user_id = current_user.id
+    tag_list = params[:item][:tag_name].split(",")
     if @item.save
       @item.save_tag(tag_list)
       redirect_to item_path(@item), notice: 'Itemを作成しました。'
@@ -35,7 +36,7 @@ class ItemsController < ApplicationController
     else
       @item = Item.find(params[:id])
       @item_tags = @item.tags
-      tag_list = params[:item][:tag_name].split(nil)
+      tag_list = params[:item][:tag_name].split(",")
       flash.now[:danger] = '作成に失敗しました。'
       render 'edit'
     end
