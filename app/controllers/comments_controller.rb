@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @drawer = drawer.find(params[:drawer_id])
+    @drawer = Drawer.find(params[:drawer_id])
     comment = @drawer.comments.find(params[:id])
     if comment.destroy!
       redirect_to drawer_path(@drawer), notice: 'コメントを削除しました。'
