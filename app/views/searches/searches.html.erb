@@ -18,7 +18,11 @@
           <td><%= attachment_image_tag item, :image, fallback:"no-image.jpeg", size: '250x200' %>></td>
           <td><%= item.name %></td>
           <td><%= item.description %></td>
-          <td><% item_tags.each do |tag| %><%= tag.tag_name %><% end %></td>
+          <td>
+            <% item.item_tags.each do |item_tag| %>
+            <%= item_tag.tag.tag_name %>
+            <% end %>
+          </td>
           <td><%= item.drawer.name %></td>
         </tr>
           <% end %>
