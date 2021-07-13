@@ -1,34 +1,38 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <div class="customer-registration-box">
+        <h3>新規会員登録はこちらから</h3>
+          <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="form-group">
+              <%= f.label :"アカウント名(英数字)", class:"col-xs-2 col-xs-offset-1 control-label" %>
+              <%= f.text_field :name, autofocus: true, placeholder: "user1234", autocomplete: "name", class:"col-xs-9 form-control" %>
+            </div>
 
-<%= form_with model: @user, url: user_registration_path, local: true do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="form-group">
+              <%= f.label :email, "メールアドレス", class:"col-xs-2 col-xs-offset-1 control-label" %>
+              <%= f.email_field :email, autofocus: true, placeholder: "sample@example.com", autocomplete: "email", class:"col-xs-9 form-control" %>
+            </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+            <div class="form-group">
+              <%= f.label :"パスワード(6文字以上)", class:"col-xs-2 col-xs-offset-1 control-label" %>
+              <%= f.password_field :password, autocomplete: "new-password", class:"col-xs-9 form-control" %>
+            </div>
+
+            <div class="field form-group col-xs-12">
+              <%= f.label :"パスワード(確認用)", class:"col-xs-2 col-xs-offset-1 control-label" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"col-xs-9 form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.submit "登録", class:"col-xs-9 col-xs-offset-3 btn btn-info" %>
+            </div>
+          <% end %>
+      </div>
+      <h2>登録済みの方</h2>
+      <%= link_to "こちら", (user_session_path) %>
+       <span> からログインを行ってください。</span>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+</div>
