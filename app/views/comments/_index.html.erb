@@ -2,7 +2,7 @@
   <% drawer.comments.each do |comment| %>
     <tr>
     	<td><%= comment.comment %></td>
-      <td><%= link_to 'Destroy', drawer_comment_path(comment.drawer_id, comment.id), local: true, class: 'btn-sm btn-danger', method: :delete %></td>
+      <td><%= link_to 'Destroy', drawer_comment_path(comment.drawer_id, comment.id), remote: true, class: 'btn-sm btn-danger', method: :delete %></td>
     </tr>
   <% end %>
 </table>
