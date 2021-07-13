@@ -19,7 +19,6 @@ class Item < ApplicationRecord
   #     self.item_tags << new_item_tag
   #   end
   # end
-
   def save_tag(tag_list)
     if self.tags != nil
       item_tags_records = ItemTag.where(item_id: self.id)
@@ -34,4 +33,9 @@ class Item < ApplicationRecord
   end
 
   attachment :image
+
+  # 検索用メソッド
+  def self.search(keyword)
+    @search_items = Item.where("name like?" , "%#{keyword}%")
+  end
 end
