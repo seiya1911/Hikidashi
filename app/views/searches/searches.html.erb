@@ -9,6 +9,7 @@
           <th>Item名</th>
           <th>説明</th>
           <th>タグ</th>
+          <th>Drawer名</th>
         </tr>
       </thead>
       <tbody>
@@ -18,6 +19,7 @@
           <td><%= item.name %></td>
           <td><%= item.description %></td>
           <td><% item_tags.each do |tag| %><%= tag.tag_name %><% end %></td>
+          <td><%= item.drawer.name %></td>
         </tr>
           <% end %>
       </tbody>
