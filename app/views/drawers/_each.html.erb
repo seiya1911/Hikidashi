@@ -3,7 +3,7 @@
     <div class="card w-100 ">
         <%= link_to drawer_path(drawer.id),style: "color: black;" do %>
       <div class="text-center">
-        <%#= attachment_image_tag drawer, :image, fallback:"no-image.jpeg", size: '250x200' %>
+        <%= attachment_image_tag(drawer, :image, size: '250x200', fallback: "no_image.jpg")%>
       </div>
       <div class="text-center">
         <h3><%= drawer.name %></h3>
