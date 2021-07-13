@@ -13,11 +13,6 @@
 			  <div class="nav-inner">
 			    <ul class="navbar-nav">
 			    <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to user_path(current_user) , class:"nav-link" do %>
-                <p>マイページ
-              <% end %>
-            </li>
             <li>
               <%= link_to drawers_path , class:"nav-link" do %>
                 <p>Drawer一覧
