@@ -8,6 +8,7 @@ class DrawersController < ApplicationController
     @drawer = Drawer.find(params[:id])
     @comment = Comment.new
     @items = @drawer.items
+    @item = Item.new
   end
 
   def new

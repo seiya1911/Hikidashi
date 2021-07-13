@@ -9,8 +9,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
-    @item.user_id = current_user.id
+    @item = current_user.item.new(item_params)
+    @item.drawer_id = drawer.id
     tag_list = params[:item][:tag_name].split(",")
     if @item.save
       @item.save_tag(tag_list)

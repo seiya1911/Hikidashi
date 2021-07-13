@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-  # 作業用に無効化
-  # before_action :authenticate_user!, except: [:top]
+  before_action :authenticate_user!, except: [:top]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
