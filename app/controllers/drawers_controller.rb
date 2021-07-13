@@ -43,6 +43,6 @@ class DrawersController < ApplicationController
   private
 
   def drawer_params
-    params.require(:drawer).permit(:name, :image_id, :description)
+    params.require(:drawer).permit(:name, :image, :description)
   end
 end

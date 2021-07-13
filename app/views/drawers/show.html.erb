@@ -11,7 +11,7 @@
       <strong><i class="fas fa-thumbtack"></i>Item一覧</strong>
       <div class='d-flex justify-content-end'>
       <div class="btnripple">
-        <%= link_to new_item_path , class:"btn btn-success", drawer: @drawer do %>
+        <%= link_to new_drawer_item_path(@drawer) , class:"btn btn-success", drawer: @drawer do %>
         <i class="fas fa-plus-circle"></i>
         <% end %>
       </div>
@@ -28,10 +28,14 @@
           <tbody>
               <% @items.each do |item| %>
             <tr>
-              <td><%= attachment_image_tag item, :image, fallback:"no-image.jpeg", size: '250x200' %>></td>
+              <td><%= attachment_image_tag item, :image, fallback:"no_image.jpg", size: '75x75' %></td>
               <td><%= item.name %></td>
               <td><%= item.description %></td>
-              <td><% item_tags.each do |tag| %><%= tag.tag_name %><% end %></td>
+              <td>
+                <% item.item_tags.each do |item_tag| %>
+                  <%= item_tag.tag.tag_name %>
+                <% end %>
+              </td>
             </tr>
               <% end %>
           </tbody>

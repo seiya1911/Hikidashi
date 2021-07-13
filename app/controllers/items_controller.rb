@@ -5,16 +5,19 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    @drawer = Drawer.find(params[:drawer_id])
+    @item = @drawer.items.new
+
   end
 
   def create
-    @item = current_user.item.new(item_params)
-    @item.drawer_id = drawer.id
+    drawer = Drawer.find(params[:drawer_id])
+    @item = drawer.items.new(item_params)
+    @item.user_id = current_user.id
     tag_list = params[:item][:tag_name].split(",")
     if @item.save
       @item.save_tag(tag_list)
-      redirect_to item_path(@item), notice: 'Itemを作成しました。'
+      redirect_to drawer_item_path(drawer, @item), notice: 'Itemを作成しました。'
     else
       flash.now[:danger] = '作成に失敗しました。'
       render 'new'
@@ -44,6 +47,6 @@ class ItemsController < ApplicationController
 
   private
     def item_params
-     params.require(:item).permit(:name, :image_id, :description)
+     params.require(:item).permit(:name, :image, :description)
     end
 end

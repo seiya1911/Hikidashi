@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :drawers, only: [:index, :show, :new, :create, :edit, :update] do
     resources :comments, only: %i[create destroy]
+    resources :items, only: [:show, :new, :create, :edit, :update]
   end
 
-  resources :items, only: [:show, :new, :create, :edit, :update]
+  # resources :items, only: [:show, :new, :create, :edit, :update]
   resources :tags, only: [:new, :destroy]
 
   get 'searches/items'
