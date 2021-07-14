@@ -27,21 +27,21 @@ class ItemsController < ApplicationController
   def edit
     @drawer = Drawer.find(params[:drawer_id])
     @item = Item.find(params[:id])
-    @item_tags = @item.tags
+    @tag_list = @item.tags.pluck(:tag_name).join(",")
   end
 
   def update
     @item = Item.find(params[:id])
-    @item_tags = @item.tags
-    tag_list = params[:item][:tag_name].split(nil)
+    @drawer = Drawer.find(params[:drawer_id])
+    tag_list = params[:item][:tag_name].split(",")
     if @item.update
       @item.save_tag(tag_list)
-      redirect_ot item_path(@item), notice: 'Itemを作成しました。'
+      redirect_ot item_path(@item), notice: 'Itemを編集しました。'
     else
+      @drawer = Drawer.find(params[:drawer_id])
       @item = Item.find(params[:id])
-      @item_tags = @item.tags
-      tag_list = params[:item][:tag_name].split(",")
-      flash.now[:danger] = '作成に失敗しました。'
+      @tag_list = @item.tags.pluck(:tag_name).join(",")
+      flash.now[:danger] = '編集に失敗しました。'
       render 'edit'
     end
   end

@@ -2,9 +2,34 @@
   <div class="row">
     <div class="mx-auto col-md-6">
       <h1 class="mb-5">Item編集</h1>
-      <%= render "form", item: @item %>
       <div class="text-center">
-        <%= link_to '戻る', :back, class: 'btn btn-info' %>
+          <%= form_with model: @item, url: drawer_item_path(@drawer, @item), local:true do |f| %>
+        <div class="form-group row">
+          <%= f.label :image_id, "Item画像", class: "col-sm-5 control-label" %>
+          <%= f.attachment_field :image, class: 'col-sm-7' %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :name, "Item名", class: "col-sm-5 control-label" %>
+          <%= f.text_field :name, class: 'col-sm-7 form-control item_name', placeholder: "Item名" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :descroption, "Item説明", class: "col-sm-5 control-label" %>
+          <%= f.text_area :description, class: 'col-sm-7 form-control item_description', placeholder: "ここに説明文を記述します" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :tag_name, "タグ", class: "col-sm-5 control-label" %>
+          <%= f.text_area :tag_name,value: @tag_list,size: "1x3", class: 'col-sm-7 form-control item_tag_name', placeholder: ",を入力することで複数のタグを付けることができます。
+例：シャツ,赤,日用品" %>
+        </div>
+
+        <div class="text-center">
+          <%= f.submit class: 'btn btn-success' %>
+        </div>
+          <% end %>
+        <%= link_to '詳細へ戻る', drawer_item_path(@item.drawer_id, @item), class: 'btn btn-info' %>
       </div>
     </div>
   </div>
