@@ -1,4 +1,4 @@
-$(function(){
+$('turbolinks:load',function(){
   $('#items_list').sortable({
     update: function(e, ui){
       let item = ui.item;
