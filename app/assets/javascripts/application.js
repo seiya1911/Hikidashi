@@ -12,6 +12,7 @@
 //
 //= require jquery3
 //= require jquery-ui/widgets/sortable
+//= require jquery-ui/effects/effect-highlight
 //= require popper
 //= require bootstrap-sprockets
 //
