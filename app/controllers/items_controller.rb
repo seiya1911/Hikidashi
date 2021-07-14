@@ -57,8 +57,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def sort
+    item = Item.find(params[:item_id])
+    item.update(item_params)
+    render nothing: true
+  end
+
   private
     def item_params
-     params.require(:item).permit(:name, :image, :description)
+     params.require(:item).permit(:name, :image, :description, :row_order_position)
     end
 end

@@ -80,3 +80,4 @@ gem 'omniauth-google-oauth2'
 
 # DragAndDrop
 gem 'ranked-model'
+gem 'jquery-ui-rails'
