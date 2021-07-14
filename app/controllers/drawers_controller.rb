@@ -40,6 +40,17 @@ class DrawersController < ApplicationController
     end
   end
 
+  def destroy
+    drawer = Drawer.find(params[:id])
+    if drawer.destroy
+      redirect_to drawers_path, notice: 'Drawerを削除しました。'
+    else
+      @drawer = Drawer.find(params[:drawer_id])
+      flash.now[:danger] = '削除に失敗しました。'
+      render 'drawers/show'
+    end
+  end
+
   private
 
   def drawer_params

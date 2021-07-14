@@ -28,8 +28,16 @@
           <tbody>
               <% @items.each do |item| %>
             <tr>
-              <td><%= attachment_image_tag item, :image, fallback:"no_image.jpg", size: '75x75' %></td>
-              <td><%= item.name %></td>
+              <td>
+                <%= link_to drawer_item_path(item.drawer_id, item) do %>
+                  <%= attachment_image_tag item, :image, fallback:"no_image.jpg", size: '75x75' %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to drawer_item_path(item.drawer_id, item) do %>
+                  <%= item.name %>
+                <% end %>
+              </td>
               <td><%= item.description %></td>
               <td>
                 <% item.item_tags.each do |item_tag| %>
@@ -43,6 +51,7 @@
         <%= render 'comments/index', drawer: @drawer %>
         <%= render 'comments/form', drawer: @drawer, comment: @comment %>
         <%= link_to '編集', edit_drawer_path(@drawer), class: "btn btn-sm btn-success edit_drawer_#{@drawer.id}" %>
+        <%= link_to '削除', drawer_path(@drawer), data: { confirm: '本当に消しますか？' }, local: true, class: 'btn-sm btn-danger', method: :delete %>
     </div>
   </div>
 </div>

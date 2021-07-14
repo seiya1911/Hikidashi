@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @drawer = Drawer.find(params[:drawer_id])
     @item = Item.find(params[:id])
     @item_tags = @item.tags
   end
@@ -42,6 +43,17 @@ class ItemsController < ApplicationController
       tag_list = params[:item][:tag_name].split(",")
       flash.now[:danger] = '作成に失敗しました。'
       render 'edit'
+    end
+  end
+
+  def destroy
+    item = Item.find(params[:id])
+    if item.destroy
+      redirect_to drawer_path(item.drawer_id), notice: 'Itemを削除しました。'
+    else
+      @ditem = Item.find(params[:item_id])
+      flash.now[:danger] = '削除に失敗しました。'
+      render 'item/show'
     end
   end
 

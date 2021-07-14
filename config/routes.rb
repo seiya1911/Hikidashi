@@ -6,12 +6,11 @@ Rails.application.routes.draw do
   root to: 'homes#top'
 
   resources :users, only: [:show, :edit, :update]
-  resources :drawers, only: [:index, :show, :new, :create, :edit, :update] do
+  resources :drawers, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :comments, only: %i[create destroy]
-    resources :items, only: [:show, :new, :create, :edit, :update]
+    resources :items, only: [:show, :new, :create, :edit, :update, :destroy]
   end
 
-  # resources :items, only: [:show, :new, :create, :edit, :update]
   resources :tags, only: [:new, :destroy]
 
   get 'searches/items'

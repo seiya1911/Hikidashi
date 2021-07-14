@@ -6,11 +6,11 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       render :create, notice: 'コメントを送信しました。'
-     else
+    else
        @drawer = Drawer.find(params[:drawer_id])
        flash.now[:danger] = '送信に失敗しました。'
        render 'drawers/show'
-     end
+    end
   end
 
   def destroy
