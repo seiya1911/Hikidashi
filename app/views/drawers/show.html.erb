@@ -51,7 +51,8 @@
         <%= render 'comments/index', drawer: @drawer %>
         <%= render 'comments/form', drawer: @drawer, comment: @comment %>
         <%= link_to '編集', edit_drawer_path(@drawer), class: "btn btn-sm btn-success edit_drawer_#{@drawer.id}" %>
-        <%= link_to '削除', drawer_path(@drawer), data: { confirm: '本当に消しますか？' }, local: true, class: 'btn-sm btn-danger', method: :delete %>
+        <%= link_to '削除', drawer_path(@drawer), data: { confirm: '本当に消しますか？' }, local: true, class: 'btn btn-sm btn-danger', method: :delete %>
+        <%= link_to '一覧へ戻る', drawers_path , class:"btn btn-primary" %>
     </div>
   </div>
 </div>
