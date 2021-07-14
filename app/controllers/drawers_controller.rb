@@ -7,8 +7,7 @@ class DrawersController < ApplicationController
   def show
     @drawer = Drawer.find(params[:id])
     @comment = Comment.new
-    @items = @drawer.items
-    @item = Item.new
+    @items = @drawer.items.rank(:row_order)
   end
 
   def new

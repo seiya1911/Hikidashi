@@ -4,19 +4,11 @@ class Item < ApplicationRecord
   has_many :item_tags, dependent: :destroy
   has_many :tags, through: :item_tags
 
+  # DragAndDrop
+  include RankedModel
+  ranks :row_order
+
   # タグを保存する
-  # def save_tag(tag_list)
-  #   if self.tags != nil
-  #     item_tags_records = ItemTag.where(item_id: self.id)
-  #     item_tags_records.destroy_all
-  #   end
-
-  #   tag_list.each do |tag|
-  #     inspected_tag = Tag.where(tag_name: tag).first_or_create
-  #     self.tags << inspected_tag
-  #   end
-
-  # end
   def save_tag(saveitem_tags)
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
     old_tags = current_tags - saveitem_tags
@@ -32,6 +24,7 @@ class Item < ApplicationRecord
     end
   end
 
+  # 画像投稿
   attachment :image
 
   # 検索用メソッド
