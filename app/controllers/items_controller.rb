@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @drawer = Drawer.find(params[:drawer_id])
     @item = Item.find(params[:id])
     @item_tags = @item.tags
   end
@@ -43,6 +44,9 @@ class ItemsController < ApplicationController
       flash.now[:danger] = '作成に失敗しました。'
       render 'edit'
     end
+  end
+
+  def destroy
   end
 
   private
