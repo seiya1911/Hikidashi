@@ -34,9 +34,9 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @drawer = Drawer.find(params[:drawer_id])
     tag_list = params[:item][:tag_name].split(",")
-    if @item.update
+    if @item.update_attributes(item_params)
       @item.save_tag(tag_list)
-      redirect_ot item_path(@item), notice: 'Itemを編集しました。'
+      redirect_to drawer_item_path(@drawer, @item), notice: 'Itemを編集しました。'
     else
       @drawer = Drawer.find(params[:drawer_id])
       @item = Item.find(params[:id])
