@@ -47,6 +47,14 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    item = Item.find(params[:id])
+    if item.destroy
+      redirect_to drawer_path(item.drawer_id), notice: 'Itemを削除しました。'
+    else
+      @ditem = Item.find(params[:item_id])
+      flash.now[:danger] = '削除に失敗しました。'
+      render 'item/show'
+    end
   end
 
   private

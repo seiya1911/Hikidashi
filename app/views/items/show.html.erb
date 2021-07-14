@@ -31,7 +31,8 @@
     <div class="col-md-6 mt-3 text-center offset-md-4">
       <div class=" mt-2 mb-4">
         <%= link_to '編集する', edit_drawer_item_path(@item.drawer_id, @item), class: "btn btn-sm btn-success" %>
-        <%= link_to '戻る', :back, class: 'btn btn-info' %>
+        <%= link_to '削除', drawer_item_path(@item.drawer_id, @item), data: { confirm: '本当に消しますか？' }, local: true, class: 'btn-sm btn-danger', method: :delete %>
+        <%= link_to 'Drawerへ戻る', drawer_path(@item.drawer_id), class: 'btn btn-info' %>
       </div>
     </div>
   </div>
