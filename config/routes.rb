@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   resources :tags, only: [:new, :destroy]
 
   get 'searches/items'
+  get 'searches/tag_items'
   get 'searches/drawers'
 end

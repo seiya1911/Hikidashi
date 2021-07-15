@@ -1,7 +1,16 @@
 <div class="search-form" style="padding-left: 20px; padding-top: 5px;">
-  <p>
+   <p>
    <%= form_with url: searches_items_path, method: :get, local: true do |f| %>
-    <%= f.text_field :keyword, value: @keyword, placeholder: "Item検索" %>
-    <%= f.submit "search" %>
+     <%= f.text_field :keyword, value: @keyword, placeholder: "Item名・説明文検索" %>
+     <%= f.submit "search" %>
+   <% end %>
+
+   <%= form_with url: searches_tag_items_path, method: :get do %>
+     <%= select_tag :tag_id,
+     options_from_collection_for_select(Tag.all, :id, :tag_name, params[:tag_id]),
+     {
+       prompt: 'Itemタグで絞り込み',
+       onchange: 'submit(this.form);'
+     }%>
    <% end %>
 </div>
