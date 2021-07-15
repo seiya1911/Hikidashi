@@ -1,6 +1,6 @@
   <%= form_with model: drawer, url: drawers_path(drawer), local:true do |f| %>
 <div class="form-group row">
-  <%= f.label :image_id, "カバー画像", class: "col-sm-5 control-label" %>
+  <%= f.label :image_id, "カバー画像*", class: "col-sm-5 control-label" %>
   <%= f.attachment_field :image, class: 'col-sm-7' %>
 </div>
 <div class="form-group row">
@@ -10,6 +10,9 @@
 <div class="form-group row">
   <%= f.label :descroption, "説明", class: "col-sm-5 control-label" %>
   <%= f.text_area :description, class: 'col-sm-7 form-control product_description', placeholder: "ここに説明文を記述します" %>
+</div>
+<div class="form-group row">
+  <p>*は任意</p>
 </div>
 <div class="text-center">
   <%= f.submit class: 'btn btn-success' %>

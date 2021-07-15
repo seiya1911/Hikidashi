@@ -20,7 +20,7 @@ class DrawersController < ApplicationController
     if @drawer.save
       redirect_to drawer_path(@drawer), notice: '新規Drawerを作成しました。'
     else
-      @drawers = drawer.all
+      @drawers = Drawer.all
       flash.now[:danger] = '新規作成に失敗しました。'
       render 'index'
     end

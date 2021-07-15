@@ -19,6 +19,8 @@ class ItemsController < ApplicationController
       @item.save_tag(tag_list)
       redirect_to drawer_item_path(drawer, @item), notice: 'Itemを作成しました。'
     else
+      @drawer = Drawer.find(params[:drawer_id])
+      @item = @drawer.items.new
       flash.now[:danger] = '作成に失敗しました。'
       render 'new'
     end
