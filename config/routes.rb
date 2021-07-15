@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :drawers, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :comments, only: %i[create destroy]
-    resources :items, only: [:show, :new, :create, :edit, :update, :destroy]
+    resources :items, only: [:show, :new, :create, :edit, :update, :destroy] do
+      put :sort
+    end
   end
 
   resources :tags, only: [:new, :destroy]

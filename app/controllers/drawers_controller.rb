@@ -7,8 +7,7 @@ class DrawersController < ApplicationController
   def show
     @drawer = Drawer.find(params[:id])
     @comment = Comment.new
-    @items = @drawer.items
-    @item = Item.new
+    @items = @drawer.items.rank(:row_order)
   end
 
   def new
@@ -21,7 +20,7 @@ class DrawersController < ApplicationController
     if @drawer.save
       redirect_to drawer_path(@drawer), notice: '新規Drawerを作成しました。'
     else
-      @drawers = drawer.all
+      @drawers = Drawer.all
       flash.now[:danger] = '新規作成に失敗しました。'
       render 'index'
     end

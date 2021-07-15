@@ -16,7 +16,7 @@
         <% end %>
       </div>
     </div>
-        <table class="table table-striped table-bordered table-condensed">
+        <table class="table table-bordered table-condensed table-sortable">
           <thead>
             <tr>
               <th>画像</th>
@@ -25,9 +25,9 @@
               <th>タグ</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="items_list">
               <% @items.each do |item| %>
-            <tr>
+            <%= content_tag "tr", id: "item-#{item.id}", class: "item", data: { model_name: item.class.name.underscore, update_url: drawer_item_sort_path(item.drawer_id, item)} do %>
               <td>
                 <%= link_to drawer_item_path(item.drawer_id, item) do %>
                   <%= attachment_image_tag item, :image, fallback:"no_image.jpg", size: '75x75' %>
@@ -44,7 +44,7 @@
                   <%= item_tag.tag.tag_name %>
                 <% end %>
               </td>
-            </tr>
+            <% end %>
               <% end %>
           </tbody>
         </table>
