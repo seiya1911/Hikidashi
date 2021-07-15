@@ -7,10 +7,13 @@
     </div>
   </div>
   <div class='d-flex justify-content-end'>
-      <div class="btnripple">
-        <%= link_to new_drawer_path , class:"btn btn-success" do %><i class="fas fa-plus-circle"></i><% end %>
-      </div>
+    <div class="btnripple">
+      <%= render 'searches/searches_drawers' %>
     </div>
+    <div class="btnripple">
+      <%= link_to new_drawer_path , class:"btn btn-success" do %><i class="fas fa-plus-circle"></i><% end %>
+    </div>
+  </div>
   <div class="row">
     <%= render "each", drawers: @drawers %>
   </div>

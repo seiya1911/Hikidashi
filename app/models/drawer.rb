@@ -8,4 +8,9 @@ class Drawer < ApplicationRecord
 
   # 画像投稿
   attachment :image
+  
+  # 検索用メソッド
+  def self.search(keyword)
+    @search_drawers = Drawer.where("name like? OR description like?", "%#{keyword}%", "%#{keyword}%")
+  end
 end
