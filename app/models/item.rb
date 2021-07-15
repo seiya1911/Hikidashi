@@ -33,6 +33,6 @@ class Item < ApplicationRecord
 
   # 検索用メソッド
   def self.search(keyword)
-    @search_items = Item.where("name like?" , "%#{keyword}%")
+    @search_items = Item.where("name like? OR description like?", "%#{keyword}%", "%#{keyword}%")
   end
 end
