@@ -1,0 +1,17 @@
+<table class='table table-hover table-inverse', id='tag_index'>
+  <thead>
+    <tr>
+      <th>タグ名</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tags.each do |tag| %>
+    <tr>
+      <td><%= tag.tag_name %></td>
+      <td><%= link_to '削除', tag_path(tag), local: true, class: 'btn-sm btn-danger', method: :delete %></td>
+      <td></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

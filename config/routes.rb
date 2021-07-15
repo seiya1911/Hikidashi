@@ -13,8 +13,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tags, only: [:new, :destroy]
+  resources :tags, only: [:index, :destroy]
 
+  #検索用
   get 'searches/items'
   get 'searches/tag_items'
   get 'searches/drawers'
