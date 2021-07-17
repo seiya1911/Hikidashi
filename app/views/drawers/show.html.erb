@@ -1,0 +1,58 @@
+<div class="container">
+ <div calss="row">
+    <div class="col-xs-8">
+      <h2 class="head-line title_h2 text-center">Drawer詳細</h2>
+      <h3><i class="fas fa-box"></i> Drawer名：<%= @drawer.name %></h3>
+    </div>
+    <div class="col-xs-3 col-xs-offset-1 drawer-description">
+        <h5>説明:<%= @drawer.description %></h5>
+    </div>
+    <div class="col-xs-7 order-details">
+      <strong><i class="fas fa-thumbtack"></i>Item一覧</strong>
+      <div class='d-flex justify-content-end'>
+      <div class="btnripple">
+        <%= link_to new_drawer_item_path(@drawer) , class:"btn btn-success", drawer: @drawer do %>
+        <i class="fas fa-plus-circle"></i>
+        <% end %>
+      </div>
+    </div>
+        <table class="table table-bordered table-condensed table-sortable">
+          <thead>
+            <tr>
+              <th>画像</th>
+              <th>Item名</th>
+              <th>説明</th>
+              <th>タグ</th>
+            </tr>
+          </thead>
+          <tbody id="items_list">
+              <% @items.each do |item| %>
+            <%= content_tag "tr", id: "item-#{item.id}", class: "item", data: { model_name: item.class.name.underscore, update_url: drawer_item_sort_path(item.drawer_id, item)} do %>
+              <td>
+                <%= link_to drawer_item_path(item.drawer_id, item) do %>
+                  <%= attachment_image_tag item, :image, fallback:"no_image.jpg", size: '75x75' %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to drawer_item_path(item.drawer_id, item) do %>
+                  <%= item.name %>
+                <% end %>
+              </td>
+              <td><%= item.description %></td>
+              <td>
+                <% item.item_tags.each do |item_tag| %>
+                  <%= item_tag.tag.tag_name %>
+                <% end %>
+              </td>
+            <% end %>
+              <% end %>
+          </tbody>
+        </table>
+        <%= render 'comments/index', drawer: @drawer %>
+        <%= render 'comments/form', drawer: @drawer, comment: @comment %>
+        <%= link_to '編集', edit_drawer_path(@drawer), class: "btn btn-sm btn-success edit_drawer_#{@drawer.id}" %>
+        <%= link_to '削除', drawer_path(@drawer), data: { confirm: '本当に消しますか？' }, local: true, class: 'btn btn-sm btn-danger', method: :delete %>
+        <%= link_to '一覧へ戻る', drawers_path , class:"btn btn-primary" %>
+    </div>
+  </div>
+</div>

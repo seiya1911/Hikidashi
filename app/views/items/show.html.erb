@@ -1,0 +1,39 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-6 offset-md-2">
+    <h5 class="d-inline bg-gray pr-3 pl-3 page-title">Item詳細</h5>
+  </div>
+</div>
+<div class="row mt-5 offset-md-2 page-title">
+    <div class="col-md-5 text-center">
+      <%= attachment_image_tag(@item, :image, :fill, 200, 200, fallback: "no_image.jpg") %>
+    </div>
+      <div class="col-md-5 ml-5 text-left">
+      <div class="row my-2">
+          <div class="col">Item名</div>
+          <div class="col"><%= @item.name %></div>
+        </div>
+        <div class="row my-2">
+          <div class="col">Item説明</div>
+          <div class="col"><%= @item.description %></div>
+        </div>
+        <div class="row my-2">
+          <div class="col">タグ</div>
+          <div class="col">
+            <% @item_tags.each do |tag| %>
+            <%= tag.tag_name %>
+            <% end %>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 mt-3 text-center offset-md-4">
+      <div class=" mt-2 mb-4">
+        <%= link_to '編集する', edit_drawer_item_path(@item.drawer_id, @item), class: "btn btn-sm btn-success" %>
+        <%= link_to '削除', drawer_item_path(@item.drawer_id, @item), data: { confirm: '本当に消しますか？' }, local: true, class: 'btn-sm btn-danger', method: :delete %>
+        <%= link_to 'Drawerへ戻る', drawer_path(@item.drawer_id), class: 'btn btn-info' %>
+      </div>
+    </div>
+  </div>
+</div>

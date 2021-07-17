@@ -1,0 +1,6 @@
+<div id="textarea">
+  <%= form_with model:[drawer,comment], remote: true do |f| %>
+    <%= f.text_area :comment, size:"90x5" %><br>
+    <%= f.submit '送信'%>
+  <% end %>
+</div>

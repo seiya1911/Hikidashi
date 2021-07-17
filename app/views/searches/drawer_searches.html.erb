@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="flame">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1>検索結果(Total<%= @drawers.count %>)</h1>
+      </div>
+    </div>
+  </div>
+  <% if @drawers.present? %>
+  <div class="row">
+    <%= render "drawers/index", drawers: @drawers %>
+  </div>
+  <div class="text-center">
+  <% else %>
+    <%= render "nil_result" %>
+  <% end %>
+  </div>
+</div>
