@@ -45,5 +45,5 @@ https://docs.google.com/spreadsheets/d/1ewviCnGYDqr7LoPFO0GB6_jOfzZShlAMSZaswxaO
 - IDE：Cloud9
 
 ## 使用素材
-- 背景画像 : https://www.stockio.com/
+- 背景画像 : https://o-dan.net/ja/
 - イラスト画像 : https://undraw.co/illustrations
