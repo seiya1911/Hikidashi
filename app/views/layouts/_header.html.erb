@@ -15,7 +15,7 @@
 			    <% if user_signed_in? %>
             <li>
               <%= link_to drawers_path , class:"nav-link" do %>
-                <p>Drawer一覧
+                Drawer一覧
               <% end %>
             </li>
             <li>
@@ -23,18 +23,18 @@
             </li>
             <li>
               <%= link_to destroy_user_session_path , method: :delete ,class:"nav-link" do %>
-                <p>ログアウト
+                ログアウト
               <% end %>
             </li>
           <% else %>
             <li>
-              <%= link_to new_user_registration_path , class:"nav-link" do %>
-                <p>新規登録
+              <%= link_to new_user_registration_path , class:"nav-link btn btn-outline-dark" do %>
+                新規登録
               <% end %>
             </li>
             <li>
-              <%= link_to new_user_session_path , class:"nav-link" do %>
-                <p>ログイン
+              <%= link_to new_user_session_path , class:"nav-link btn btn-outline-dark" do %>
+                ログイン
               <% end %>
             </li>
           <% end %>
