@@ -31,6 +31,7 @@ class DrawersController < ApplicationController
   end
 
   def update
+    @drawer = Drawer.find(params[:id])
     if @drawer.update(drawer_params)
       redirect_to drawer_path(@drawer), notice: 'Drawerを更新しました。'
     else
