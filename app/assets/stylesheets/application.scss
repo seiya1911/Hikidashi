@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- 
+
   .nav-item {
     margin-left: 30px;
     }
@@ -48,8 +48,7 @@
     }
 
   .top-image {
-    background-image: url("/images/top-image.jpg");
-    // background: gray;
+    background-image: image-url("top-image.jpg");
     background-size: cover;
     background-position: bottom;
     width: 100%;
