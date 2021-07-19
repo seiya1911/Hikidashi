@@ -84,3 +84,7 @@ gem 'jquery-ui-rails'
 
 # jQueryをtarbolinks下で発火させる
 gem 'jquery-turbolinks'
+
+group :production do
+  gem 'mysql2'
+end
