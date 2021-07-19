@@ -1,8 +1,33 @@
-<h1>Hikidashiへようこそ</h1>
-<p>Hikidashiとは</p>
-<li>
-  <%= link_to "新規登録", new_user_registration_path %>
-</li>
-<li>
-  <%= link_to "ログイン", new_user_session_path %>
-</li>
+<div class="container">
+  <p class="home-top-logo" style="text-align: center">
+    <font size="2">STRAGE MANAGEMENT SITE</font>
+  </p>
+  <h1 class="home-logo" style="text-align: center">
+    <a href="/" style="color: gray">HIKIDASHI</a>
+  </h1>
+  <P class="text-center">
+    <strong>MANAGE STRAGE, UPDATE YOUR LIFE</strong>
+  </P>
+  <br>
+  <br>
+  <div class="top-image">
+    <div class="cover-text">
+      <p class="top-text" style="color: #fff;">ようこそHIKIDASHIへ、<br>
+      このサイトは引き出しやクローゼットなどの収納の中にあるものを<br>
+      一覧にして管理できるサイトです。<br><br>
+      ついたくさんお買い物をしてしまう方は持ち物を確認するために、<br>
+      ミニマリストの方には断捨離する際のお供として、<br>
+      ものを管理して、生活をちょこっと豊かにするお助けをします。<br><br>
+      会員登録がお済みでない方は「新規登録ボタン」からご登録を、<br>
+      登録済みの方は「ログインボタン」よりログインください。<br>
+      </p>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="form-group row justify-content-center">
+    <%= link_to "新規登録", new_user_registration_path, class:"btn btn-outline-dark w-25" %>
+    <p style="padding: 0px 100px;"></p>
+    <%= link_to "ログイン", new_user_session_path, class:"btn btn-outline-dark w-25" %>
+  </div>
+</div>

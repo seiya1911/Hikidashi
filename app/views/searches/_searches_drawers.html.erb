@@ -1,5 +1,4 @@
-<div class="search-form" style="padding-left: 20px; padding-top: 5px;">
-   <p>
+<div class="search-form" style="padding-right: 20px; padding-top: 5px;">
    <%= form_with url: searches_drawers_path, method: :get, local: true do |f| %>
      <%= f.text_field :keyword, value: @keyword, placeholder: "Drawer名・説明文検索" %>
      <%= f.submit "search" %>

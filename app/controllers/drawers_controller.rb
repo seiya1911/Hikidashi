@@ -1,7 +1,7 @@
 class DrawersController < ApplicationController
 
   def index
-    @drawers = Drawer.all
+    @drawers = Drawer.all.page(params[:page]).per(8)
   end
 
   def show
@@ -31,6 +31,7 @@ class DrawersController < ApplicationController
   end
 
   def update
+    @drawer = Drawer.find(params[:id])
     if @drawer.update(drawer_params)
       redirect_to drawer_path(@drawer), notice: 'Drawerを更新しました。'
     else
