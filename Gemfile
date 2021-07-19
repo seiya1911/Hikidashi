@@ -82,8 +82,10 @@ gem 'omniauth-google-oauth2'
 gem 'ranked-model'
 gem 'jquery-ui-rails'
 
-# jQueryをtarbolinks下で発火させる
-gem 'jquery-turbolinks'
+# ページネーション
+gem 'kaminari'
+
+gem 'listen', '>= 3.0.5', '< 3.2'
 
 group :production do
   gem 'mysql2'
