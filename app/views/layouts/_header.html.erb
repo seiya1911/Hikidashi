@@ -1,46 +1,45 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light" id="header-out">
-    <div class="container" id="header-conteiner">
-      <div id="header-logo">
-				<a class="navbar-brand" id="top-path" href="/" style="margin-top: -10px;">
-				  <!--<p>-->
-				  <!--  <%#= image_tag 'header-logo.jpg' %>-->
-				  <!--</p>-->
-					<h1 id="logo">Hikidashi</h1>
-				</a>
-			</div>
-			<div class="colapse" id="navbarNavDropdown">
-			  <div class="nav-inner">
-			    <ul class="navbar-nav">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <nav class="nav navbar-nav navbar-left">
+        <% if user_signed_in? %>
+			    <a class="navbar-brand" id="top-path" href="/drawers" style="margin-top: -10px;">
+				<h1 class="header-logo" style="color: gray">HIKIDASHI</h1>
+			</a>
+			  <% else %>
+			    <a class="navbar-brand" id="top-path" href="/" style="margin-top: -10px;">
+				<h1 class="header-logo" style="color: gray">HIKIDASHI</h1>
+			</a>
+			  <% end %>
+			 </nav>
+			<nav class="nav navbar-nav navbar-right">
+			  <ul class="nav navbar-nav navbar-right">
 			    <% if user_signed_in? %>
-            <li>
-              <%= link_to drawers_path , class:"nav-link" do %>
-                Drawer一覧
-              <% end %>
-            </li>
-            <li>
+			      <li class="nav-item">
               <%= render 'searches/searches_items' %>
             </li>
-            <li>
-              <%= link_to destroy_user_session_path , method: :delete ,class:"nav-link" do %>
-                ログアウト
-              <% end %>
+            <li class="nav-item">
+              <%= link_to "HOME", drawers_path, class:"btn btn-outline-dark" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "タグ管理", tags_path, class:"btn btn-outline-dark" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_user_session_path , method: :delete ,class:"btn btn-outline-dark" %>
             </li>
           <% else %>
-            <li>
-              <%= link_to new_user_registration_path , class:"nav-link btn btn-outline-dark" do %>
-                新規登録
-              <% end %>
+            <li class="nav-item">
+              <%= link_to "HOME", root_path , class:"btn btn-outline-dark" %>
             </li>
-            <li>
-              <%= link_to new_user_session_path , class:"nav-link btn btn-outline-dark" do %>
-                ログイン
-              <% end %>
+            <li class="nav-item">
+              <%= link_to "新規登録", new_user_registration_path , class:"btn btn-outline-dark" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログイン", new_user_session_path , class:"btn btn-outline-dark" %>
             </li>
           <% end %>
           </ul>
-        </div>
-      </div>
+      </nav>
     </div>
   </nav>
 </header>
