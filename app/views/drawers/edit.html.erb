@@ -19,9 +19,12 @@
         <p>*は任意</p>
       </div>
       <div class="text-center">
-        <%= f.submit class: 'btn btn-success' %>
+        <%= f.submit class:"btn btn-primary btn-lg btn-block" %>
       </div>
         <% end %>
+      <div class="text-center" style='padding-top: 20px;'>
+          <%= link_to '戻る', drawer_path(@drawer), class: 'btn btn-info' %>
+      </div>
     </div>
   </div>
 </div>
