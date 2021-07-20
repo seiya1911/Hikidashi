@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <nav class="nav navbar-nav navbar-left" style="margin-top: 40px; margin-bottom: 40px;">
+      <nav class="nav navbar-nav navbar-left" style="margin-top: 10px; margin-bottom: 10px;">
         <% if user_signed_in? %>
 			<a class="navbar-brand" id="top-path" href="/drawers" style="margin-top: -10px;">
 				<%= image_tag 'HIKIDASHI-logo.png' %>
@@ -12,7 +12,7 @@
 			</a>
 			  <% end %>
 			 </nav>
-			<nav class="nav navbar-nav navbar-right" style="margin-top: 40px; margin-bottom: 40px;">
+			<nav class="nav navbar-nav navbar-right" style="margin-top: 10px; margin-bottom: 10px;">
 			  <ul class="nav navbar-nav navbar-right">
 			    <% if user_signed_in? %>
 			      <li class="nav-item">
@@ -29,7 +29,10 @@
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to "HOME", root_path , class:"btn btn-outline-dark" %>
+              <%= link_to "TOP", root_path , class:"btn btn-outline-dark" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "使い方", about_path , class:"btn btn-outline-dark" %>
             </li>
             <li class="nav-item">
               <%= link_to "新規登録", new_user_registration_path , class:"btn btn-outline-dark" %>

@@ -68,6 +68,23 @@
     color: black;
     }
 
+  .circle {
+    display: inline-block;
+    width: 30%;
+    height: 150px;
+    border-radius: 80%;
+    border: 3px solid #7a7a7a;
+    border-color: #7a7a7a;
+    text-align: center;
+    line-height: 150px;
+    font-size: 35px;
+    }
+
+  .about-number {
+    border-bottom: solid 2px black;
+    font-size: 40px;
+    }
+
   .pagination {
     padding-top: 20px;
     justify-content: center;
