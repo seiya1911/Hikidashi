@@ -1,78 +1,74 @@
 <div class="container">
- <div calss="row">
-    <div class="col-xs-8">
-      <h2 class="head-line title_h2 text-center"><i class="fas fa-box" style="padding-right: 20px;"></i><%= @drawer.name %></h2>
-    </div>
-    <div class="col-xs-3 col-xs-offset-1 drawer-description">
-        <h5 style="padding-top: 20px; padding-bottom: 20px;"><%= @drawer.description %></h5>
-    </div>
-    <div class="col-xs-7 order-details">
-      <div class="d-flex bd-highlight">
-        <div class="p-2 bd-highlight">
-          <strong><i class="fas fa-thumbtack"></i>Item一覧</strong>
-        </div>
-        <div class="ml-auto p-2 bd-highlight">
-          <div class="btnripple">
-            <%= link_to new_drawer_item_path(@drawer) , class:"btn btn-success", drawer: @drawer do %>
-              <i class="fas fa-plus-circle"></i>
-            <% end %>
-          </div>
-        </div>
+  <div class="col-xs-8">
+    <h2 class="head-line title_h2 text-center"><i class="fas fa-box" style="padding-right: 20px;"></i><%= @drawer.name %></h2>
+  </div>
+  <div class="col-xs-3 col-xs-offset-1 drawer-description">
+    <h5 style="padding-top: 20px; padding-bottom: 20px;"><%= @drawer.description %></h5>
+  </div>
+  <div class="col-xs-7 order-details">
+    <div class="d-flex bd-highlight">
+      <div class="p-2 bd-highlight">
+        <strong><i class="fas fa-thumbtack"></i>Item一覧</strong>
       </div>
-    </div>
-    <div class="col-xs-7 order-details">
-      <table class="table table-bordered table-condensed table-sortable">
-        <thead>
-          <tr>
-            <th>画像</th>
-            <th>Item名</th>
-            <th>説明</th>
-            <th>タグ</th>
-          </tr>
-        </thead>
-        <tbody id="items_list">
-            <% @items.each do |item| %>
-          <%= content_tag "tr", id: "item-#{item.id}", class: "item", data: { model_name: item.class.name.underscore, update_url: drawer_item_sort_path(item.drawer_id, item)} do %>
-            <td>
-              <%= link_to drawer_item_path(item.drawer_id, item) do %>
-                <%= attachment_image_tag item, :image, fallback:"no_image.jpg", size: '75x75' %>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to drawer_item_path(item.drawer_id, item) do %>
-                <%= item.name %>
-              <% end %>
-            </td>
-            <td><%= item.description %></td>
-            <td>
-              <% item.item_tags.each do |item_tag| %>
-                <%= item_tag.tag.tag_name %>
-              <% end %>
-            </td>
-            <% end %>
+      <div class="ml-auto p-2 bd-highlight">
+        <div class="btnripple">
+          <%= link_to new_drawer_item_path(@drawer) , class:"btn btn-success", drawer: @drawer do %>
+            <i class="fas fa-plus-circle"></i>
           <% end %>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-xs-7 order-details">
-        <%= render 'comments/index', drawer: @drawer %>
-        <%= render 'comments/form', drawer: @drawer, comment: @comment %>
-    </div>
-    <div class="col-xs-7 order-details">
-      <div class="d-flex bd-highlight">
-        <div class="p-2 flex-fill bd-highlight">
-          <%= link_to '削除', drawer_path(@drawer), data: { confirm: '本当に消しますか？' }, local: true, class: 'btn btn-danger btn-lg btn-block', method: :delete %>
-        </div>
-        <div class="p-2 flex-fill bd-highlight">
-          <%= link_to '編集', edit_drawer_path(@drawer), class: "btn btn-success btn-lg btn-block" %>
-        </div>
-        <div class="p-2 flex-fill bd-highlight">
-          <%= link_to '一覧へ戻る', drawers_path , class:"btn btn-primary btn-lg btn-block" %>
         </div>
       </div>
-
-
-
+    </div>
+  </div>
+  <div class="col-xs-7 order-details">
+    <table class="table table-bordered table-condensed table-sortable">
+      <thead>
+        <tr>
+          <th>画像</th>
+          <th>Item名</th>
+          <th>説明</th>
+          <th>タグ</th>
+        </tr>
+      </thead>
+      <tbody id="items_list">
+          <% @items.each do |item| %>
+        <%= content_tag "tr", id: "item-#{item.id}", class: "item", data: { model_name: item.class.name.underscore, update_url: drawer_item_sort_path(item.drawer_id, item)} do %>
+          <td>
+            <%= link_to drawer_item_path(item.drawer_id, item) do %>
+              <%= attachment_image_tag item, :image, fallback:"no_image.jpg", size: '75x75' %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to drawer_item_path(item.drawer_id, item) do %>
+              <%= item.name %>
+            <% end %>
+          </td>
+          <td><%= item.description %></td>
+          <td>
+            <% item.item_tags.each do |item_tag| %>
+              <%= item_tag.tag.tag_name %>
+            <% end %>
+          </td>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-xs-7 order-details">
+    <div><strong>コメント</strong></div>
+    <%= render 'comments/index', drawer: @drawer %>
+    <%= render 'comments/form', drawer: @drawer, comment: @comment %>
+  </div>
+  <div class="col-xs-7 order-details">
+    <div class="d-flex bd-highlight">
+      <div class="p-2 flex-fill bd-highlight">
+        <%= link_to '削除', drawer_path(@drawer), data: { confirm: '本当に消しますか？' }, local: true, class: 'btn btn-danger btn-lg btn-block', method: :delete %>
+      </div>
+      <div class="p-2 flex-fill bd-highlight">
+        <%= link_to '編集', edit_drawer_path(@drawer), class: "btn btn-success btn-lg btn-block" %>
+      </div>
+      <div class="p-2 flex-fill bd-highlight">
+        <%= link_to '一覧へ戻る', drawers_path , class:"btn btn-primary btn-lg btn-block" %>
+      </div>
     </div>
   </div>
 </div>
