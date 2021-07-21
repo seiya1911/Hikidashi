@@ -1,8 +1,8 @@
 <table id="comments_area">
   <% drawer.comments.each do |comment| %>
     <tr>
-    	<td><%= comment.comment %></td>
-      <td><%= link_to '削除', drawer_comment_path(comment.drawer_id, comment.id), remote: true, class: 'btn-sm btn-danger', method: :delete %></td>
+      <td><%= link_to '削除', drawer_comment_path(comment.drawer_id, comment.id), remote: true, class: 'btn-sm btn-secondary', method: :delete %></td>
+      <td style="padding-left: 30px;"><%= comment.comment %></td>
     </tr>
   <% end %>
 </table>

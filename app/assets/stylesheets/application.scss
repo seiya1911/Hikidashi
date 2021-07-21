@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- 
+
   .nav-item {
     margin-left: 30px;
     }
@@ -25,6 +25,7 @@
     text-align: center;
     margin-top: 50px;
     }
+  
 
   .home-logo {
     font-size: 50px;
@@ -48,8 +49,7 @@
     }
 
   .top-image {
-    background-image: url("/images/top-image.jpg");
-    // background: gray;
+    background-image: image-url("top-image.jpg");
     background-size: cover;
     background-position: bottom;
     width: 100%;
@@ -67,6 +67,23 @@
   .top-text {
     background-color: rgba( 0, 0, 0, 0.7);
     color: black;
+    }
+
+  .circle {
+    display: inline-block;
+    width: 30%;
+    height: 150px;
+    border-radius: 80%;
+    border: 3px solid #7a7a7a;
+    border-color: #7a7a7a;
+    text-align: center;
+    line-height: 150px;
+    font-size: 35px;
+    }
+
+  .about-number {
+    border-bottom: solid 2px black;
+    font-size: 40px;
     }
 
   .pagination {
