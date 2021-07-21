@@ -25,6 +25,7 @@
     text-align: center;
     margin-top: 50px;
     }
+  
 
   .home-logo {
     font-size: 50px;
@@ -66,6 +67,23 @@
   .top-text {
     background-color: rgba( 0, 0, 0, 0.7);
     color: black;
+    }
+
+  .circle {
+    display: inline-block;
+    width: 30%;
+    height: 150px;
+    border-radius: 80%;
+    border: 3px solid #7a7a7a;
+    border-color: #7a7a7a;
+    text-align: center;
+    line-height: 150px;
+    font-size: 35px;
+    }
+
+  .about-number {
+    border-bottom: solid 2px black;
+    font-size: 40px;
     }
 
   .pagination {
