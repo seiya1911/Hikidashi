@@ -54,11 +54,6 @@
     </table>
   </div>
   <div class="col-xs-7 order-details">
-    <div><strong>コメント</strong></div>
-    <%= render 'comments/index', drawer: @drawer %>
-    <%= render 'comments/form', drawer: @drawer, comment: @comment %>
-  </div>
-  <div class="col-xs-7 order-details">
     <div class="d-flex bd-highlight">
       <div class="p-2 flex-fill bd-highlight">
         <%= link_to '削除', drawer_path(@drawer), data: { confirm: '本当に消しますか？' }, local: true, class: 'btn btn-danger btn-lg btn-block', method: :delete %>
@@ -70,5 +65,10 @@
         <%= link_to '一覧へ戻る', drawers_path , class:"btn btn-primary btn-lg btn-block" %>
       </div>
     </div>
+  </div>
+  <div class="col-xs-7 order-details">
+    <div style="padding-top: 20px;"><strong>コメント</strong></div>
+    <%= render 'comments/form', drawer: @drawer, comment: @comment %>
+    <%= render 'comments/index', drawer: @drawer %>
   </div>
 </div>
