@@ -32,7 +32,7 @@ class Item < ApplicationRecord
   attachment :image
 
   # 検索用メソッド
-  def self.search(keyword)
-    @search_items = Item.where("name like? OR description like?", "%#{keyword}%", "%#{keyword}%")
+  def self.search(user_id, keyword)
+    @search_items = Item.where("user_id = ? and (name like? OR description like?)", user_id ,"%#{keyword}%", "%#{keyword}%")
   end
 end

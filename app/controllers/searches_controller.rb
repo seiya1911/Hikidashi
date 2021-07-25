@@ -1,17 +1,18 @@
 class SearchesController < ApplicationController
   def items
-    @items = Item.search(params[:keyword])
+    @items = Item.search(current_user.id, params[:keyword])
     @keyword = params[:keyword]
     render 'searches'
   end
 
   def tag_items
-    @items = params[:tag_id].present? ? Tag.find(params[:tag_id]).items : Item.all
+    user = current_user
+    @items = params[:tag_id].present? ? Tag.find(params[:tag_id]).items : user.items
     render 'tag_searches'
   end
 
   def drawers
-    @drawers = Drawer.search(params[:keyword])
+    @drawers = Drawer.search(current_user.id, params[:keyword])
     @keyword = params[:keyword]
     render 'drawer_searches'
   end

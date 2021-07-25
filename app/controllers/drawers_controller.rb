@@ -1,7 +1,8 @@
 class DrawersController < ApplicationController
 
   def index
-    @drawers = Drawer.all.page(params[:page]).per(8)
+    @user = current_user
+    @drawers = @user.drawers.page(params[:page]).per(8)
   end
 
   def show
