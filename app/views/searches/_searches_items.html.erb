@@ -6,7 +6,7 @@
 
    <%= form_with url: searches_tag_items_path, method: :get do %>
      <%= select_tag :tag_id,
-     options_from_collection_for_select(Tag.all, :id, :tag_name, params[:tag_id]),
+     options_from_collection_for_select(ItemTag.joins(:tag).joins(:item).where(items:{user_id:current_user.id}).select('tags.*'), :id, :tag_name, params[:tag_id]),
      {
        prompt: 'Itemタグで検索',
        onchange: 'submit(this.form);'
