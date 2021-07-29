@@ -1,5 +1,10 @@
 # Hikidashi
 
+![HIKIDASHI-logo](https://user-images.githubusercontent.com/81756376/127419791-673ff51c-e889-4c2b-ae42-dcaa1e7f72b9.png)
+  
+http://hikidashi.top/  
+サンプルユーザー(mail:sample@sample.com/password:samplepass)を用意しています。
+
 ## サイト概要
 引き出しやクローゼットなどの収納の中にあるものを一覧にして管理できるサイト。  
 管理したい場所の名前でDrawerを作成し、その収納にしまっているItemを写真と説明とともに保存しておけます。  
@@ -47,3 +52,9 @@ https://docs.google.com/spreadsheets/d/1ewviCnGYDqr7LoPFO0GB6_jOfzZShlAMSZaswxaO
 ## 使用素材
 - 背景画像 : https://o-dan.net/ja/
 - イラスト画像 : https://undraw.co/illustrations
+
+## HOMEページ　　
+![image-top](https://user-images.githubusercontent.com/81756376/127424140-5157ddae-6ca7-41ed-845d-2b9c8896385c.png)  
+※ログイン後HOMEページのイメージです
+
+
