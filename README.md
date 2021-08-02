@@ -40,7 +40,7 @@ Itemはタグにより更に細かく分類することも可能で、タグに�
 ### [アプリケーション詳細設計書](https://drive.google.com/file/d/1uRquWAauk6m99_mKPA0BjcwfbYkR7ycR/view?usp=sharing)
 
 ## チャレンジ要素一覧
-https://docs.google.com/spreadsheets/d/1ewviCnGYDqr7LoPFO0GB6_jOfzZShlAMSZaswxaO0QE/edit#gid=0
+### [チャレンジ要素一覧](https://docs.google.com/spreadsheets/d/1ewviCnGYDqr7LoPFO0GB6_jOfzZShlAMSZaswxaO0QE/edit#gid=0)
 
 ## 開発環境
 - OS：Linux(CentOS)
