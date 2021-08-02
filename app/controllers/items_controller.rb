@@ -16,6 +16,12 @@ class ItemsController < ApplicationController
     @item.user_id = current_user.id
     tag_list = params[:item][:tag_name].split(",")
     if @item.save
+      # vision-APIタグ生成メソッド
+      tags = Vision.get_image_data(@item.image)
+      tags.each do |tag|
+        @item.tags.create(tag_name: tag)
+      end
+
       @item.save_tag(tag_list)
       redirect_to drawer_item_path(drawer, @item), notice: 'Itemを作成しました。'
     else
