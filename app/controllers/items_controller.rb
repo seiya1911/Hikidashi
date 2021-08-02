@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
     @item.user_id = current_user.id
     tag_list = params[:item][:tag_name].split(",")
     if @item.save
+
       # vision-APIタグ生成メソッド
       tags = Vision.get_image_data(@item.image)
       tags.each do |tag|
