@@ -14,8 +14,16 @@ class ItemsController < ApplicationController
     drawer = Drawer.find(params[:drawer_id])
     @item = drawer.items.new(item_params)
     @item.user_id = current_user.id
-    tag_list = params[:item][:tag_name].split(",")
+    tag_list = params[:item][:tag_name].split(" ")
     if @item.save
+
+      # vision-APIタグ生成メソッド
+      tags = Vision.get_image_data(@item.image)
+      tags.each do |tag|
+        tag_list.push(tag)
+        #@item.tags.create(tag_name: tag)
+      end
+
       @item.save_tag(tag_list)
       redirect_to drawer_item_path(drawer, @item), notice: 'Itemを作成しました。'
     else
@@ -29,20 +37,20 @@ class ItemsController < ApplicationController
   def edit
     @drawer = Drawer.find(params[:drawer_id])
     @item = Item.find(params[:id])
-    @tag_list = @item.tags.pluck(:tag_name).join(",")
+    @tag_list = @item.tags.pluck(:tag_name).join(" ")
   end
 
   def update
     @item = Item.find(params[:id])
     @drawer = Drawer.find(params[:drawer_id])
-    tag_list = params[:item][:tag_name].split(",")
+    tag_list = params[:item][:tag_name].split(" ")
     if @item.update_attributes(item_params)
       @item.save_tag(tag_list)
       redirect_to drawer_item_path(@drawer, @item), notice: 'Itemを編集しました。'
     else
       @drawer = Drawer.find(params[:drawer_id])
       @item = Item.find(params[:id])
-      @tag_list = @item.tags.pluck(:tag_name).join(",")
+      @tag_list = @item.tags.pluck(:tag_name).join(" ")
       flash.now[:danger] = '編集に失敗しました。'
       render 'edit'
     end
