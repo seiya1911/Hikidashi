@@ -7,7 +7,6 @@ class ItemsController < ApplicationController
   def new
     @drawer = Drawer.find(params[:drawer_id])
     @item = @drawer.items.new
-
   end
 
   def create
@@ -24,7 +23,7 @@ class ItemsController < ApplicationController
         #@item.tags.create(tag_name: tag)
       end
 
-      @item.save_tag(tag_list)
+      @item.save_tag(tag_list, @item.user_id)
       redirect_to drawer_item_path(drawer, @item), notice: 'Itemを作成しました。'
     else
       @drawer = Drawer.find(params[:drawer_id])
@@ -45,7 +44,7 @@ class ItemsController < ApplicationController
     @drawer = Drawer.find(params[:drawer_id])
     tag_list = params[:item][:tag_name].split(" ")
     if @item.update_attributes(item_params)
-      @item.save_tag(tag_list)
+      @item.save_tag(tag_list, @item.user_id)
       redirect_to drawer_item_path(@drawer, @item), notice: 'Itemを編集しました。'
     else
       @drawer = Drawer.find(params[:drawer_id])

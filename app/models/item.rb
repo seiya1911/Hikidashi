@@ -13,17 +13,17 @@ class Item < ApplicationRecord
   ranks :row_order
 
   # タグを保存する
-  def save_tag(saveitem_tags)
+  def save_tag(saveitem_tags, user_id)
     current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
     old_tags = current_tags - saveitem_tags
     new_tags = saveitem_tags - current_tags
 
     old_tags.each do |old_name|
-      self.tags.delete Tag.find_by(tag_name: old_name)
+      self.tags.delete Tag.find_by(tag_name: old_name, user_id: user_id)
     end
 
     new_tags.each do |new_name|
-      item_tag = Tag.find_or_create_by(tag_name: new_name)
+      item_tag = Tag.find_or_create_by(tag_name: new_name, user_id: user_id)
       self.tags << item_tag
     end
   end

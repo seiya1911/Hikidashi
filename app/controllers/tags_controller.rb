@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   def index
-    @tags = ItemTag.joins(:tag).joins(:item).where(items:{user_id:current_user.id}).select('tags.*')
+    @tags = current_user.tags
   end
 
   def destroy
@@ -8,7 +8,7 @@ class TagsController < ApplicationController
     if tag.destroy
       redirect_to tags_path, notice: 'タグを削除しました。'
     else
-      @tags = ItemTag.joins(:tag).joins(:item).where(items:{user_id:current_user.id}).select('tags.*')
+      @tags = current_user.tags
       flash.now[:danger] = '削除に失敗しました。'
       render 'index'
     end
