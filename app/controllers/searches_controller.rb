@@ -1,5 +1,7 @@
 class SearchesController < ApplicationController
   def search
+    @user = current_user
+    @items = @user.items
   end
 
   def items
