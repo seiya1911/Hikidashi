@@ -15,11 +15,11 @@
 			<nav class="nav navbar-nav navbar-right" style="margin-top: 10px; margin-bottom: 10px;">
 			  <ul class="nav navbar-nav navbar-right">
 			    <% if user_signed_in? %>
-			      <li class="nav-item">
-              <%= render 'searches/searches_items' %>
-            </li>
             <li class="nav-item">
               <%= link_to "HOME", drawers_path, class:"btn btn-outline-dark" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Item検索", search_path, class:"btn btn-outline-dark" %>
             </li>
             <li class="nav-item">
               <%= link_to "タグ管理", tags_path, class:"btn btn-outline-dark" %>

@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   resources :tags, only: [:index, :destroy]
 
   #検索用
+  get 'searches/search'
+  get 'search' => 'searches#search'
   get 'searches/items'
   get 'searches/tag_items'
   get 'searches/drawers'

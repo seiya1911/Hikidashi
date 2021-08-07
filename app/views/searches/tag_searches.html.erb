@@ -1,6 +1,9 @@
 <div class="container">
  <h2 class="head-line title_h2 text-center">検索結果(Total<%= @items.count %>)</h2>
  <div calss="row">
+   <div class="d-flex justify-content-end">
+      <%= render 'searches/searches_items' %>
+   </div>
    <% if @items.present? %>
     <table class="table table-striped table-bordered table-condensed">
       <thead>

@@ -1,5 +1,5 @@
 <div class="container">
- <h2 class="head-line title_h2 text-center">検索結果(Total<%= @items.count %>)</h2>
+ <h2 class="head-line title_h2 text-center">全Item検索(Total<%= @items.count %>)</h2>
  <div calss="row">
    <div class="d-flex justify-content-end">
       <%= render 'searches/searches_items' %>
@@ -44,7 +44,7 @@
       </tbody>
     </table>
     <% else %>
-      <%= render "nil_result" %>
+      <%= render "nil_item" %>
     <% end %>
   </div>
 </div>

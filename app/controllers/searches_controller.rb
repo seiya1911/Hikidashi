@@ -1,4 +1,9 @@
 class SearchesController < ApplicationController
+  def search
+    @user = current_user
+    @items = @user.items
+  end
+
   def items
     @items = Item.search(current_user.id, params[:keyword])
     @keyword = params[:keyword]
