@@ -17,7 +17,8 @@ class SearchesController < ApplicationController
   end
 
   def drawers
-    @drawers = Drawer.search(current_user.id, params[:keyword])
+    # ページネーション追加
+    @drawers = Drawer.search(current_user.id, params[:keyword]).page(params[:page]).per(8)
     @keyword = params[:keyword]
     render 'drawer_searches'
   end
