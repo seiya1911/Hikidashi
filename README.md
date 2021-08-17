@@ -54,7 +54,7 @@ Itemはタグにより更に細かく分類することも可能で、タグに�
 - イラスト画像 : https://undraw.co/illustrations
 
 ## HOMEページ　　
-![image-top](https://user-images.githubusercontent.com/81756376/127424140-5157ddae-6ca7-41ed-845d-2b9c8896385c.png)  
+![image-top](https://user-images.githubusercontent.com/81756376/129657701-da68fd15-9631-4061-ab9b-273bca92e913.png)  
 ※ログイン後HOMEページのイメージです
 
 
