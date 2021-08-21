@@ -6,15 +6,10 @@
       </div>
     </div>
   </div>
-
-
-    <div class="btnripple d-flex justify-content-end">
-      <%= render 'searches/searches_drawers' %>
-
-      <%= link_to new_drawer_path , class:"btn btn-success" do %><i class="fas fa-plus-circle"></i><% end %>
-    </div>
-
-
+  <div class="btnripple d-flex justify-content-end">
+    <%= render 'searches/searches_drawers' %>
+    <%= link_to new_drawer_path , class:"btn btn-success" do %><i class="fas fa-plus-circle"></i><% end %>
+  </div>
   <div class="row">
     <%= render "index", drawers: @drawers %>
   </div>
