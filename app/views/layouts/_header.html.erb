@@ -1,6 +1,16 @@
 <header>
   <nav class="navbar navbar-expand-lg">
     <div class="container">
+
+      <div class="navbar-header">
+
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
       <nav class="nav navbar-nav navbar-left" style="margin-top: 10px; margin-bottom: 10px;">
         <% if user_signed_in? %>
 			<a class="navbar-brand" id="top-path" href="/drawers" style="margin-top: -10px;">
@@ -12,6 +22,9 @@
 			</a>
 			  <% end %>
 			 </nav>
+
+			 </div>
+
 			<nav class="nav navbar-nav navbar-right" style="margin-top: 10px; margin-bottom: 10px;">
 			  <ul class="nav navbar-nav navbar-right">
 			    <% if user_signed_in? %>
@@ -42,23 +55,23 @@
             </li>
           <% end %>
           </ul>
-          
-          <div id="hamburger">
-  <p class="btn-gNav">
-    <span></span>
-    <span></span>
-    <span></span>
-  </p>
-  <nav id="gNav" class="">
-    <ul class="gNav-menu">
-      <li><a href="">トップ</a></li>
-      <li><a href="">概要</a></li>
-      <li><a href="">特集</a></li>
-      <li><a href="">アクセス</a></li>
-      <li><a href="">お問い合わせ</a></li>
-    </ul>
-  </nav>
-</div>
+
+<!--          <div id="hamburger">-->
+<!--  <p class="btn-gNav">-->
+<!--    <span></span>-->
+<!--    <span></span>-->
+<!--    <span></span>-->
+<!--  </p>-->
+<!--  <nav id="gNav" class="">-->
+<!--    <ul class="gNav-menu">-->
+<!--      <li><a href="">トップ</a></li>-->
+<!--      <li><a href="">概要</a></li>-->
+<!--      <li><a href="">特集</a></li>-->
+<!--      <li><a href="">アクセス</a></li>-->
+<!--      <li><a href="">お問い合わせ</a></li>-->
+<!--    </ul>-->
+<!--  </nav>-->
+<!--</div>-->
       </nav>
     </div>
   </nav>
