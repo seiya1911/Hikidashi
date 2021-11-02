@@ -2,7 +2,8 @@
 
 ![HIKIDASHI-logo](https://user-images.githubusercontent.com/81756376/127419791-673ff51c-e889-4c2b-ae42-dcaa1e7f72b9.png)
   
-(停止中)http://hikidashi.top/
+http://hikidashi.top/ (停止中)
+<br>
 サンプルユーザー(mail:sample@sample.com/password:samplepass)を用意しています。
 
 ## サイト概要
