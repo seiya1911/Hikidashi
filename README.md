@@ -4,7 +4,7 @@
   
 http://hikidashi.top/ (停止中　)
 <br>
-http://13.115.188.156 (実行中)
+http://13.115.188.156 (停止中)
 <br>
 サンプルユーザー(mail:sample@sample.com/password:samplepass)を用意しています。
 
